@@ -197,7 +197,7 @@ resource "aws_security_group" "pvtSG" {
     from_port       = 0
     to_port         = 0
     protocol        = "-1"
-    security_groups = [aws_security_group.pubSG1.id]
+    security_groups = [aws_security_group.pubSG.id]
   }
 
   tags = {
