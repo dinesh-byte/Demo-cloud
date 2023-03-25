@@ -154,7 +154,7 @@ resource "aws_nat_gateway" "nat2" {
 
 }
 #SECUIRT GROUP
-resource "aws_security_group" "pubSG1" {
+resource "aws_security_group" "pubSG" {
   name        = "allow_tls"
   description = "Allow TLS inbound traffic"
   vpc_id      = aws_vpc.myvpc.id
@@ -179,7 +179,7 @@ resource "aws_security_group" "pubSG1" {
     Name = "MY-PUB-SG1"
   }
 }
-resource "aws_security_group" "pvtSG4" {
+resource "aws_security_group" "pvtSG" {
   name        = "allow_tls-1"
   description = "Allow TLS inbound traffic"
   vpc_id      = aws_vpc.myvpc.id
@@ -189,7 +189,7 @@ resource "aws_security_group" "pvtSG4" {
     from_port       = 0
     to_port         = 65535
     protocol        = "tcp"
-    security_groups = [aws_security_group.pubSG1.id]
+    security_groups = [aws_security_group.pubSG.id]
 
   }
 
